@@ -59,7 +59,20 @@
         app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.61" />
+        app:layout_constraintVertical_bias="0.623" />
+
+    <ImageButton
+        android:id="@+id/togglePasswordVisibility"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="4dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Toggle Password Visibility"
+        android:src="@drawable/ic_visibility_off"
+        app:layout_constraintBottom_toBottomOf="@id/passwordField"
+        app:layout_constraintStart_toEndOf="@id/passwordField"
+        app:layout_constraintTop_toTopOf="@id/passwordField"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/contraseña"

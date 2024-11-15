@@ -1,6 +1,12 @@
 package com.example.policalendariomedicinal;
 
 import android.os.Bundle;
+import android.widget.Button;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +25,25 @@ public class MainActivity3 extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        Button inicio =findViewById(R.id.btnInicioSesion);
+        inicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity3.this, MainActivity5.class);
+                    startActivity(intent);
+
+            }
+        });
+
+        Button registro = findViewById(R.id.btnRegistrarse);
+        registro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity3.this, MainActivity2.class);
+                startActivity(intent);
+            }
         });
     }
 }
