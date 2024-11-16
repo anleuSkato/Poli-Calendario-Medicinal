@@ -10,6 +10,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import android.content.ContentValues;
+
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -68,34 +75,37 @@ public class MainActivity6 extends AppCompatActivity {
             String hora = etHora.getText().toString();
             String dias = etDias.getText().toString();
 
-            // Validaciones
-            if (TextUtils.isEmpty(medicamento)) {
-                Toast.makeText(MainActivity6.this, "El medicamento no puede estar vacío", Toast.LENGTH_SHORT).show();
+            if (TextUtils.isEmpty(medicamento) || TextUtils.isEmpty(dosis) || TextUtils.isEmpty(hora) || TextUtils.isEmpty(dias)) {
+                Toast.makeText(MainActivity6.this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            if (TextUtils.isEmpty(dosis)) {
-                Toast.makeText(MainActivity6.this, "La dosis no puede estar vacía", Toast.LENGTH_SHORT).show();
-                return;
+            // Usar DBHelper para insertar los datos
+            DBHelper dbHelper = new DBHelper(MainActivity6.this);
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+            ContentValues values = new ContentValues();
+            values.put("nombre", medicamento);
+            values.put("dosis", dosis);
+            values.put("hora", hora);
+            values.put("dias", dias);
+
+            // Insertar el medicamento en la base de datos
+            long id = db.insert("medicamentos", null, values);
+
+            if (id != -1) {
+                Toast.makeText(MainActivity6.this, "Medicamento guardado correctamente", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(MainActivity6.this, "Error al guardar el medicamento", Toast.LENGTH_SHORT).show();
             }
 
-            if (TextUtils.isEmpty(hora)) {
-                Toast.makeText(MainActivity6.this, "La hora no puede estar vacía", Toast.LENGTH_SHORT).show();
-                return;
-            }
+            db.close();
 
-            if (TextUtils.isEmpty(dias)) {
-                Toast.makeText(MainActivity6.this, "Los días no pueden estar vacíos", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // Aquí puedes guardar los datos en una base de datos o hacer otra lógica
-            Toast.makeText(MainActivity6.this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show();
-
-            // Navegar a otra actividad
+            // Puedes navegar a otra actividad si lo deseas
             Intent intent = new Intent(MainActivity6.this, MainActivity7.class);
             startActivity(intent);
         });
+
 
         // Botón para regresar
         Button regresar = findViewById(R.id.btnRegresar);
@@ -105,3 +115,5 @@ public class MainActivity6 extends AppCompatActivity {
         });
     }
 }
+
+
