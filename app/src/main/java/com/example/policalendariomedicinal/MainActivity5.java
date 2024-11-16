@@ -59,12 +59,12 @@ public class MainActivity5 extends AppCompatActivity {
                 }
 
                 // Si todo está bien, iniciar la nueva actividad
-                Intent intent = new Intent(MainActivity5.this, MainActivity4.class);
+                Intent intent = new Intent(MainActivity5.this, MainActivity6.class);
                 startActivity(intent);
             }
         });
 
-        // Lógica para mostrar/ocultar la contraseña
+        // Logica para mostrar/ocultar la contraseña
         ImageButton togglePasswordVisibility = findViewById(R.id.togglePasswordVisibility);
         togglePasswordVisibility.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +83,7 @@ public class MainActivity5 extends AppCompatActivity {
 
     }
 
-    // Método para validar el formato del correo
+    // Metodo para validar el formato del correo
     private boolean isValidEmail(String email) {
         return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }

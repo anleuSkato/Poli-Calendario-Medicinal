@@ -31,9 +31,10 @@
         android:textSize="29dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintVertical_bias="0.096" />
 
     <EditText
         android:id="@+id/etDias"
@@ -58,10 +59,10 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.143" />
+        app:layout_constraintVertical_bias="0.179" />
 
     <EditText
         android:id="@+id/etHora"
@@ -78,16 +79,16 @@
 
     <EditText
         android:id="@+id/etMedicamento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="334dp"
+        android:layout_height="53dp"
         android:hint="NOMBRE DEL MEDIACAMENTO"
-        android:textSize="25dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.816"
+        app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.252" />
+        app:layout_constraintVertical_bias="0.255" />
 
     <EditText
         android:id="@+id/etDosis"
@@ -103,11 +104,12 @@
         app:layout_constraintVertical_bias="0.353" />
 
     <CheckBox
+        android:id="@+id/checkbox_notifications"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleX="1.5"
         android:scaleY="1.5"
-        android:text="RECIBIR NOTIFICACIONES"
+        android:text="RECIBIR NOTIFICACION"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.387"
@@ -124,7 +126,7 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.864" />
@@ -138,7 +140,7 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.864" />
