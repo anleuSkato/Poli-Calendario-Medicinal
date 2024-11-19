@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/nombreTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/dosisTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dosis"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/horaTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hora"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/diasTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Días"
+        android:textSize="14sp" />
+</LinearLayout>
