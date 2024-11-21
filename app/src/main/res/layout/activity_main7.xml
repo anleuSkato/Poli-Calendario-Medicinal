@@ -36,6 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:padding="8dp"
+        android:textColor="?android:textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

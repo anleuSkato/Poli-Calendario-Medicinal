@@ -53,7 +53,7 @@
         android:id="@+id/bienvenidx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BIENVENIDX"
+        android:text="BIENVENIDO"
         android:textColor="#4682B4"
         android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
