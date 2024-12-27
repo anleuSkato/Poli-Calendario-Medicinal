@@ -126,7 +126,7 @@
         android:id="@+id/btnGuardar"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:background="@drawable/button_background"
+
         android:text="LISTO"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -34,12 +34,9 @@ public class MainActivity7 extends AppCompatActivity {
 
         CalendarView calendarView = findViewById(R.id.calendarView);
 
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
-                Toast.makeText(MainActivity7.this, "Fecha: " + selectedDate, Toast.LENGTH_SHORT).show();
-            }
+        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
+            String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+            Toast.makeText(MainActivity7.this, "Fecha: " + selectedDate, Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -51,14 +48,26 @@ public class MainActivity7 extends AppCompatActivity {
         Cursor cursor = db.query("medicamentos", null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
             do {
-                String nombre = cursor.getString(cursor.getColumnIndex("nombre"));
-                String dosis = cursor.getString(cursor.getColumnIndex("dosis"));
-                String hora = cursor.getString(cursor.getColumnIndex("hora"));
-                String dias = cursor.getString(cursor.getColumnIndex("dias"));
-                medicamentos.add(new Medicamento(nombre, dosis, hora, dias));
+                String nombre = getColumnValue(cursor, "nombre");
+                String dosis = getColumnValue(cursor, "dosis");
+                String hora = getColumnValue(cursor, "hora");
+                String dias = getColumnValue(cursor, "dias");
+
+                if (nombre != null && dosis != null && hora != null && dias != null) {
+                    medicamentos.add(new Medicamento(nombre, dosis, hora, dias));
+                }
             } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
+    }
+
+    private String getColumnValue(Cursor cursor, String columnName) {
+        int columnIndex = cursor.getColumnIndex(columnName);
+        if (columnIndex != -1) {
+            return cursor.getString(columnIndex);
+        } else {
+            return null; // Manejar el caso de columna no encontrada
+        }
     }
 }
