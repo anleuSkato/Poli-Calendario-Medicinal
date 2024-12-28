@@ -1,7 +1,10 @@
 package com.example.policalendariomedicinal;
 
 public class Medicamento {
-    private String nombre, dosis, hora, dias;
+    private String nombre;
+    private String dosis;
+    private String hora;
+    private String dias;
 
     public Medicamento(String nombre, String dosis, String hora, String dias) {
         this.nombre = nombre;

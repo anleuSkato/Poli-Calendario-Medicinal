@@ -89,7 +89,7 @@ public class MainActivity6 extends AppCompatActivity {
             db.close();
 
             // Navegar a MainActivity7
-            Intent intent = new Intent(MainActivity6.this, MainActivity7.class);
+            Intent intent = new Intent(MainActivity6.this, MainActivity8.class);
             startActivity(intent);
 
         });
@@ -97,7 +97,7 @@ public class MainActivity6 extends AppCompatActivity {
 
         Button regresar = findViewById(R.id.btnRegresar);
         regresar.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity6.this, MainActivity7.class);
+            Intent intent = new Intent(MainActivity6.this, MainActivity8.class);
             startActivity(intent);
 
         });
