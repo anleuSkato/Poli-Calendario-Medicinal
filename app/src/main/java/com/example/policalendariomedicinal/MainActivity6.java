@@ -11,34 +11,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import android.content.ContentValues;
-
-
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity6 extends AppCompatActivity {
 
     private CheckBox checkBoxNotificaciones;
 
+    private static final String PREF_NAME = "mis_preferencias";
+    private static final String PREF_NOTIFICACIONES_KEY = "notificaciones_activadas";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main6);
-
-        // Configurar sistema de insets para barras del sistema
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
         // Referencias a los campos de entrada
         EditText etMedicamento = findViewById(R.id.etMedicamento);
@@ -50,14 +37,14 @@ public class MainActivity6 extends AppCompatActivity {
         checkBoxNotificaciones = findViewById(R.id.checkbox_notifications);
 
         // Cargar el estado del CheckBox desde SharedPreferences
-        SharedPreferences preferences = getSharedPreferences("mis_preferencias", MODE_PRIVATE);
-        boolean notificacionesActivadas = preferences.getBoolean("notificaciones_activadas", false);
+        SharedPreferences preferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        boolean notificacionesActivadas = preferences.getBoolean(PREF_NOTIFICACIONES_KEY, false);
         checkBoxNotificaciones.setChecked(notificacionesActivadas);
 
         // Listener para el CheckBox
         checkBoxNotificaciones.setOnCheckedChangeListener((buttonView, isChecked) -> {
             SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean("notificaciones_activadas", isChecked);
+            editor.putBoolean(PREF_NOTIFICACIONES_KEY, isChecked);
             editor.apply();
 
             if (isChecked) {
@@ -101,19 +88,19 @@ public class MainActivity6 extends AppCompatActivity {
 
             db.close();
 
-            // Puedes navegar a otra actividad si lo deseas
+            // Navegar a MainActivity7
             Intent intent = new Intent(MainActivity6.this, MainActivity7.class);
             startActivity(intent);
+
         });
 
 
-        // Botón para regresar
         Button regresar = findViewById(R.id.btnRegresar);
         regresar.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity6.this, MainActivity7.class);
             startActivity(intent);
+
         });
+
     }
 }
-
-

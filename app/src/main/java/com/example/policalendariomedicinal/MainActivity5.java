@@ -65,6 +65,7 @@ public class MainActivity5 extends AppCompatActivity {
                 // Si todo está bien, iniciar la nueva actividad
                 Intent intent = new Intent(MainActivity5.this, MainActivity6.class);
                 startActivity(intent);
+                finish();
             }
         });
 

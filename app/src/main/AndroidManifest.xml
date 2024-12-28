@@ -12,34 +12,47 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PoliCalendarioMedicinal"
         tools:targetApi="31">
+
+        <!-- Actividades principales con tema personalizado -->
         <activity
             android:name=".MainActivity7"
-            android:exported="true" />
+            android:exported="true"/>
+
         <activity
             android:name=".MainActivity6"
             android:exported="true" />
+
         <activity
             android:name=".MainActivity5"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity4"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity3"
             android:exported="false" />
+
+        <!-- Aplicando tema personalizado a esta actividad -->
         <activity
             android:name=".MainActivity2"
             android:exported="false"
             android:theme="@style/Theme.PoliCalendarioMedicinal" />
+
+        <!-- Activity principal que lanza la app -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
+    <!-- Permisos requeridos -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 </manifest>
